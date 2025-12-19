@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+
+    <h1>114306077_HW7_1A2B</h1>
+    
+    <div id="gameArea">
+        <label for="guessInput">Enter 4 unique numbers</label>
+        <input type="text" id="guessInput" maxlength="4">
+        <button onclick="play()">Guess!</button>
+        <p id="message"></p> 
+        <p>目前猜測次數: <span id="count">0</span></p>
+    </div>
+    
+    <h2>猜測紀錄:</h2>
+    <div id="recordArea">
+        </div>
+    
+    <script>
+        var answer = '';
+        var guessCount = 0;
+        var recordArea = document.getElementById('recordArea');
+        var countSpan = document.getElementById('count');
+        var messageArea = document.getElementById('message'); 
+        var guessInput = document.getElementById('guessInput');
+        var guessButton = document.querySelector('button');
+
+        
+        window.onload = function() {
+            answer = generateAnswer();
+            
+        };
+        
+        
+        function generateAnswer() {
+            var digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+            var ans = '';
+
+            for (var i = 0; i < 4; i++) {
+                var index = Math.floor(Math.random() * digits.length);
+                ans += digits[index].toString();
+                digits.splice(index, 1);
+            }
+            return ans;
+        }
+        
+        function isValid(str) {
+            
+            if (str.length !== 4) {
+                alert('輸入必須是四位數!'); 
+                return false;
+            }
+            if (!/^\d{4}$/.test(str)) {
+                alert('輸入必須全部是數字 (0-9)!'); 
+                return false;
+            }
+            var uniqueDigits = new Set(str.split('')); 
+            if (uniqueDigits.size !== 4) {
+                alert('四個數字必須互不重複!'); 
+                return false;
+            }
+            return true; 
+        }
+        
+        
+        function checkAB(guess, ans) {
+            var A = 0; 
+            var B = 0;
+            for (var i = 0; i < 4; i++) {
+                if (guess[i] === ans[i]) {
+                    A++;
+                } else if (ans.includes(guess[i])) {
+                    B++;
+                }
+            }
+            return A + 'A ' + B + 'B'; 
+        }
+        
+        
+        function play() {
+            var userGuess = guessInput.value.trim();
+            
+            if (!isValid(userGuess)) {
+                return; 
+            }
+            
+            guessCount++;
+            countSpan.textContent = guessCount;
+
+            var result = checkAB(userGuess, answer);
+            
+            
+            recordArea.innerHTML += '<p>第 ' + guessCount + ' 次猜測: <strong>' + userGuess + '</strong> -> 結果: <span>' + result + '</span></p>';
+            
+            if (result === '4A 0B') {
+                
+                alert('恭喜你! 正確答案是 ' + answer + '。你共猜了 ' + guessCount + ' 次。');
+                
+                
+                guessInput.disabled = true;
+                guessButton.disabled = true;
+            } 
+
+            
+            guessInput.value = '';
+            guessInput.focus();
+        }
+    </script>
+
+</body>
+</html>

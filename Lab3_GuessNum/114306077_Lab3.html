@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <h1>114306077_Number Guessing Game</h1>  
+    <div id="game-status">
+    </div>
+    
+	<script>
+        var ANSWER = Math.floor(Math.random() * 100) + 1;
+        var minBound = 1;
+        var maxBound = 100;
+        var attemptsLeft = 7;
+        const statusDiv = document.getElementById('game-status');
+        let gameCanceled = false;
+
+        while (attemptsLeft > 0 && !gameCanceled) {
+        var promptMessage = 
+         "請輸入 " + minBound + " 到 " + maxBound + " 之間的整數\n" +
+         "你還有 " + attemptsLeft + " 次機會";
+        var input = window.prompt(promptMessage);
+        if (input === null) {
+            alert('遊戲已取消，正確答案是 ' + ANSWER);
+            gameCanceled = true; 
+                continue;
+            }
+        var trimmedInput = input.trim();
+        if (trimmedInput === "") {
+        alert('輸入無效！請勿留空。');
+        continue;
+        } 
+		var intGuess = parseInt(trimmedInput);
+        if (isNaN(intGuess) || intGuess < minBound || intGuess > maxBound) {
+        alert('輸入無效！請輸入 ' + minBound + ' 到 ' + maxBound + ' 範圍內的整數。');
+        continue;
+             }
+         if (intGuess === ANSWER) {
+            alert('恭喜你答對了，正確答案是 ' + ANSWER + '！');
+         statusDiv.innerHTML = '<img src="correct.jpg" alt="猜對了">';
+                break;               
+         } else {
+             attemptsLeft--;
+         if (intGuess < ANSWER) {
+         minBound = intGuess + 1;
+         } else {
+         maxBound = intGuess - 1;
+     }
+         if (attemptsLeft === 0) {
+         alert('沒有機會了！很遺憾，正確答案是 ' + ANSWER + '。');
+         statusDiv.innerHTML = '<img src="wrong.jpg" alt="機會用完">';
+         }
+    }
+}
+    </script>
+</body>
+</html>
