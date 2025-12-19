@@ -1,0 +1,45 @@
+@media all{
+	body{
+		background-color: skyblue;
+		color:white;
+		font-family: tahoma,arial;
+		display: static            
+    	justify-content: center;  
+    	align-items: center;      
+    	height: 300px;
+	}
+	h1{
+		font-family: tahoma;
+	}
+	.navbar{
+		position: static;
+		display: flex;
+		margin-right:100em ;
+		top:5 em;
+		left:2 em ;
+		width:30 em ;
+
+	}
+	nav ul{
+		display: none;
+		list-style: none;
+		margin:0;
+		padding: 0;
+	}
+	nav:hover ul{
+		display: block;		
+	}
+	nav ul li{
+		border-top: 2px solid RoyalBlue;
+		background-color: white;
+		width:10em;
+		color:black;
+	}
+	nav ul li:hover{
+		background-color: powderblue;
+	}
+	a{text-decoration: none}
+}
+@media print{
+	
+}
