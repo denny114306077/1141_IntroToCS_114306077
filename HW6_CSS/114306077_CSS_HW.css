@@ -1,0 +1,189 @@
+body {
+    background-color: skyblue;
+    display: flex;
+    justify-content: center; 
+    align-items: flex-start; 
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+.main-container {
+    width: 1000px; 
+    background-color: floralwhite;
+    display: flex;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.left-panel {
+    width: 30%; 
+    background-color: lightsteelblue;
+    color: floralwhite;
+    display: flex;
+    flex-direction: column;
+}
+
+.right-panel {
+    width: 70%; 
+    padding: 30px 40px; 
+    color: gray;
+}
+.profile-img {
+    width: 100%; 
+    height: auto;
+    display: block;
+    border-bottom: 5px solid floralwhite;
+}
+.text-content {
+    padding: 30px 20px;
+    flex-grow: 1; 
+}
+.name {
+    font-size: 2em;
+    margin-bottom: 5px;
+    color: floralwhite;
+}
+.title {
+    font-style: italic;
+    font-size: 0.9em;
+    margin-bottom: 20px;
+    color: gray;
+}
+.subsection-title {
+    font-size: 1.2em;
+    margin: 15px 0 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); 
+    color: gray;
+}
+.contact-list a{
+    list-style: none; 
+    line-height: 1.8;
+}
+.contact-list a:hover {
+    color: gray;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.contact-list li:hover {
+    color: gray;
+}
+.contact-list .fas, .contact-list .fab {
+    margin-right: 8px;
+    color: gray;
+}
+.logo-container {
+    padding: 10px 20px 20px;
+    text-align: center;
+}
+.nccu-logo {
+    width: 200px; 
+    height: auto;
+    opacity: 0.8;
+}
+.section {
+    margin-bottom: 40px;
+}
+.section-title {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid lightsteelblue; 
+    color: lightsteelblue;
+}
+.education-item {
+    display: flex; 
+}
+.year {
+    width: 150px;
+    flex-shrink: 0;
+    font-weight: bold;
+    color: lightsteelblue;
+}
+.description {
+    flex-grow: 1;
+    padding-left: 20px;
+}
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.tag {
+    display: inline-block; 
+    background-color: floralwhite; 
+    color: floralwhite;
+    padding: 8px 15px;
+    border-radius: 20px; 
+    font-size: 0.9em;
+    font-weight: bold;
+}
+.hw-lab-container {
+    display: flex; 
+    gap: 20px;
+}
+.hw-column, .lab-column {
+    flex: 1; 
+    padding: 20px;
+    background-color: lightsteelblue; 
+    border-radius: 10px;
+}
+.hw-column h3, .lab-column h3 {
+    color: gray;
+    margin-bottom: 15px;
+}
+.hw-list, .lab-list {
+    list-style-type: none;
+}
+.hw-list li, .lab-list li {
+    margin-bottom: 8px;
+    list-style-position: inside; 
+    list-style-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Ccircle cx='5' cy='5' r='3' fill='%233f51b5'/%3E%3C/svg%3E");
+}
+.hw-list , .lab-list  {
+    color: floralwhite;
+    text-decoration: none; 
+    transition: color 0.3s;
+}
+.hw-list:hover, .lab-list:hover {
+    color: floralwhite; 
+}
+.music-row {
+    display: flex;
+    justify-content: space-around; 
+    align-items: flex-start;
+    text-align: center;
+    margin-top: 20px;
+}
+.music-item {
+    flex-basis: 22%; 
+    text-decoration: none;
+    color: inherit;
+    display: block; 
+}
+.music-icon {
+    width: 10px; 
+    height: 10px;
+    object-fit: cover;
+    border-radius: 50%; 
+    margin-bottom: 5px;
+    border: 3px solid lightsteelblue;
+    transition: transform 0.3s;
+}
+.music-item :hover .music-icon {
+    transform: scale(1.05);
+}
+.song-title {
+    display: block;
+    font-size: 0.9em;
+    color: lightsteelblue;
+    margin-top: 5px;
+}
+.music-note {
+    text-align: center;
+    margin-top: 25px;
+    font-style: italic;
+    font-size: 0.9em;
+    color: #666;
+    padding-top: 10px;
+    border-top: 1px dashed #eee;
+}
+
